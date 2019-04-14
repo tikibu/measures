@@ -27,7 +27,7 @@ func (ms *MeasureStore) Get(key string) (v float64, err error) {
 		}
 		ms.measures[key], err = fm, err
 		ms.mu.Unlock()
-		return 0.0, nil
+		return fm.Get(), nil
 	} else {
 		ms.mu.Unlock()
 		return measure.Get(), nil
